@@ -22,6 +22,9 @@ class pdfEntry(tk.Frame):
         self.upButton = ttk.Button(self, text="Up", command=self.moveUp)
         self.upButton.pack(side="right", padx=2)
 
+        self.bind("<Enter>", self.onHover)
+        self.bind("<Leave>", self.onLeaveHover)
+
     def moveUp(self):
         self.updateListCallback(self.fileName, direction="up")
 
@@ -30,3 +33,9 @@ class pdfEntry(tk.Frame):
 
     def delete(self):
         self.updateListCallback(self.fileName, direction="delete")
+
+    def onHover(self, event):
+        self.config(borderwidth=1, relief="solid")
+
+    def onLeaveHover(self, event):
+        self.config(borderwidth=0)
