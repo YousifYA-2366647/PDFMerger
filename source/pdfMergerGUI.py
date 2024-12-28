@@ -52,9 +52,9 @@ class mergerWindow:
                 self.selectedFiles = []
                 self.errorMessage.config(text="Merged successfully!", foreground="green")
             else:
-                self.errorMessage.config(text="Please choose a valid name for the output file")
+                self.errorMessage.config(text="Please choose a valid name for the output file", foreground="red")
         else:
-            self.errorMessage.config(text="Please choose a few files first")
+            self.errorMessage.config(text="Please choose a few files first", foreground="red")
 
     def on_button_click(self):
         self.errorMessage.config(text="")
