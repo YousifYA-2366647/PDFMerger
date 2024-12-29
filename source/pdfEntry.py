@@ -7,10 +7,12 @@ class pdfEntry(tk.Frame):
 
         self.fileName = file_name
         self.updateListCallback = update_list_callback
-
-        self.textLabel = ttk.Label(self, text=file_name, anchor="w", width=80)
-        if len(file_name) > 80:
-            self.textLabel.config(text=file_name[:77] + "...") 
+        self.create_widgets()
+    
+    def create_widgets(self):
+        self.textLabel = ttk.Label(self, text=self.fileName, anchor="w", width=80)
+        if len(self.fileName) > 80:
+            self.textLabel.config(text=self.fileName[:77] + "...") 
         self.textLabel.pack(side="left", fill="x", padx=5, pady=2)
 
         self.deleteButton = ttk.Button(self, text="Delete", command=self.delete)

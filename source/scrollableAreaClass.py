@@ -5,7 +5,9 @@ from pdfEntry import pdfEntry
 class ScrollableFrame(tk.Frame):
     def __init__(self, parent, *args, **kwargs):
         super().__init__(parent, *args, **kwargs)
+        self.create_widgets()
 
+    def create_widgets(self):
         self.chosenFilesList = tk.Canvas(self)
 
         self.chosenFilesScrollBar = ttk.Scrollbar(self.chosenFilesList, orient="vertical", command=self.chosenFilesList.yview)
