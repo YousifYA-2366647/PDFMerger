@@ -1,4 +1,4 @@
-from pdfMerger import mergePdf
+import pypdf
 import tkinter as tk
 from tkinter import ttk
 import tkinter.filedialog as fd
@@ -46,7 +46,7 @@ class mergerWindow:
                 outputFile += ".pdf"
 
             if outputFile:
-                mergePdf(self.selectedFiles, outputFile)
+                self.mergePdf(outputFile)
                 for widget in self.scrollableArea.scrollableFrame.winfo_children():
                     widget.destroy()
                 self.selectedFiles = []
@@ -55,6 +55,25 @@ class mergerWindow:
                 self.errorMessage.config(text="Please choose a valid name for the output file", foreground="red")
         else:
             self.errorMessage.config(text="Please choose a few files first", foreground="red")
+
+    def mergePdf(self, output: str) -> None:
+        merger = pypdf.PdfWriter()
+
+        for file in self.selectedFiles:
+            try:
+                with open(file, "rb") as openedFile:
+                    merger.append(fileobj=openedFile)
+            except FileNotFoundError as err:
+                print("File not found. \n")
+                print(err)
+                
+        try:
+            with open(output, "wb") as outputFile:
+                merger.write(outputFile)
+        except FileNotFoundError as err:
+                print("File not found. \n")
+                print(err)
+        merger.close()
 
     def on_button_click(self):
         self.errorMessage.config(text="")

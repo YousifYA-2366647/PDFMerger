@@ -1356,9 +1356,6 @@
   ('pdfEntry',
    'C:\\Users\\yousi\\Desktop\\programming\\vs-python\\pdfManipulator\\PDFMerger\\source\\pdfEntry.py',
    'PYMODULE'),
-  ('pdfMerger',
-   'C:\\Users\\yousi\\Desktop\\programming\\vs-python\\pdfManipulator\\PDFMerger\\source\\pdfMerger.py',
-   'PYMODULE'),
   ('pickle',
    'C:\\Program '
    'Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\\Lib\\pickle.py',
